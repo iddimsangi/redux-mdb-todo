@@ -193,7 +193,6 @@ const AddTodo = () => {
                           type="checkbox"
                           value=""
                           aria-label="..."
-                          checked
                         />
                         <s>Cras justo odio</s>
                       </li>
@@ -206,7 +205,6 @@ const AddTodo = () => {
                           type="checkbox"
                           value=""
                           aria-label="..."
-                          checked
                         />
                         <s>Dapibus ac facilisis in</s>
                       </li>
