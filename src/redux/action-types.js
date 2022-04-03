@@ -1,0 +1,5 @@
+export const actionsTypes = {
+  ADD_TASK: "ADD_TASK",
+  REMOVE_TASK: "REMOVE_TASK",
+  MARK_COMPLETE_TASK: "MARK_COMPLETE_TASK",
+};
