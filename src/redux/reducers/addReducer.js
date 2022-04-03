@@ -1,17 +1,15 @@
 import { actionsTypes } from "../action-types";
 const initialState = {
-  tasks: [
-    {
-      id: 1,
-      task: "sw",
-    },
-  ],
+  tasks: [],
 };
 
-export const addReducer = (state = initialState, action) => {
-  switch (action.type) {
+export const addReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
     case actionsTypes.ADD_TASK:
-      return state;
+      return {
+        ...state,
+        tasks: payload,
+      };
 
     default:
       return state;
