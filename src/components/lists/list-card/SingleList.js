@@ -1,11 +1,9 @@
 import React from "react";
-// import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { markComplete } from "../../../redux/actions";
 const SingleList = ({ task }) => {
-  //   const task = useSelector((state) => state.allTasks.tasks);
-  //   const { id, isActive, inputValue } = task[0];
-  //   console.log(inputValue);
   const { id, isActive, inputValue } = task;
-
+  const dispatch = useDispatch();
   return (
     <li
       className="list-group-item d-flex align-items-center border-0 mb-2 rounded"
@@ -17,8 +15,9 @@ const SingleList = ({ task }) => {
         type="checkbox"
         value=""
         aria-label="..."
+        onClick={() => dispatch(markComplete(id))}
       />
-      {inputValue}
+      {isActive ? inputValue : <s>{inputValue}</s>}
     </li>
   );
 };

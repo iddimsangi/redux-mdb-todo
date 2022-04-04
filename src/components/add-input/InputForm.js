@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addTask } from "../../redux/actions";
+import uuid from "react-uuid";
 const InputForm = () => {
   const dispatch = useDispatch();
   const [inputs, setInputs] = useState({
-    id: new Date(),
+    id: uuid(),
     isActive: true,
     inputValue: "",
   });
@@ -12,6 +13,7 @@ const InputForm = () => {
   const inputHandler = (e) => {
     return setInputs({
       ...inputs,
+      id: uuid(),
       inputValue: e.target.value,
     });
   };
