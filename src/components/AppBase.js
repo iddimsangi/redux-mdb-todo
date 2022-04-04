@@ -6,6 +6,11 @@ import { useSelector } from "react-redux";
 const AppBase = () => {
   const tasks = useSelector((state) => state.allTasks.tasks);
   const [filtersTodos, setfiltersTodos] = useState([]);
+
+  useEffect(() => {
+    setfiltersTodos(tasks);
+    console.log(filtersTodos);
+  }, [tasks, filtersTodos]);
   return (
     <section className="vh-100 gradient-custom">
       <div className="container py-5 h-100">
@@ -56,7 +61,7 @@ const AppBase = () => {
                     </a>
                   </li>
                 </ul>
-                <Lists tasks={tasks} />
+                <Lists tasks={filtersTodos} />
               </div>
             </div>
           </div>
