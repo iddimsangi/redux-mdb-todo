@@ -17,7 +17,6 @@ const InputForm = () => {
   };
   const onFormSubmit = (event) => {
     event.preventDefault();
-    console.log(inputs);
     dispatch(addTask(inputs));
     setInputs({
       ...inputs,
