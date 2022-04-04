@@ -11,3 +11,10 @@ export const markComplete = (isActive) => {
     payload: isActive,
   };
 };
+
+export const filterTodo = (filteredTodos) => {
+  return {
+    type: actionsTypes.FILTERS_TODO,
+    payload: filteredTodos,
+  };
+};

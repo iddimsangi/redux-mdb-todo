@@ -1,9 +1,9 @@
 import "./App.css";
-import AddTodo from "./components/AddTodo";
+import AppBase from "./components/AppBase.js";
 function App() {
   return (
     <div>
-      <AddTodo />
+      <AppBase />
     </div>
   );
 }

@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import InputForm from "./add-input/InputForm";
 import Lists from "./lists/Lists";
-const AddTodo = () => {
+import { useSelector } from "react-redux";
+
+const AppBase = () => {
+  const tasks = useSelector((state) => state.allTasks.tasks);
+  const [filtersTodos, setfiltersTodos] = useState([]);
   return (
     <section className="vh-100 gradient-custom">
       <div className="container py-5 h-100">
@@ -52,7 +56,7 @@ const AddTodo = () => {
                     </a>
                   </li>
                 </ul>
-                <Lists />
+                <Lists tasks={tasks} />
               </div>
             </div>
           </div>
@@ -62,4 +66,4 @@ const AddTodo = () => {
   );
 };
 
-export default AddTodo;
+export default AppBase;
