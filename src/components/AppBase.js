@@ -8,11 +8,11 @@ const AppBase = () => {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.allTasks.tasks);
   const [filtersTodos, setfiltersTodos] = useState([]);
-  const [filterKeyword, setFilterKeyWord] = useState("All");
 
   useEffect(() => {
     setfiltersTodos(tasks);
   }, [tasks, filtersTodos]);
+
   return (
     <section className="vh-100 gradient-custom">
       <div className="container py-5 h-100">
@@ -25,7 +25,7 @@ const AppBase = () => {
                 <ul className="nav nav-tabs mb-4 pb-2" id="ex1" role="tablist">
                   <li className="nav-item" role="presentation">
                     <a
-                      className="nav-link active"
+                      className={`nav-link active`}
                       id="ex1-tab-1"
                       data-mdb-toggle="tab"
                       href="#ex1-tabs-1"
