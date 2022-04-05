@@ -21,6 +21,13 @@ export const addReducer = (state = initialState, { type, payload }) => {
         tasks: [...taskCopy],
       };
     case actionsTypes.FILTERS_TODO_COMPLETE:
+      let completeTasks = state.tasks.filter(
+        (task) => task.isActive === payload
+      );
+      return {
+        tasks: [...completeTasks],
+      };
+    case actionsTypes.FILTERS_TODO_ACTIVE:
       let activeTasks = state.tasks.filter((task) => task.isActive === payload);
       return {
         tasks: [...activeTasks],

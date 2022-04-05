@@ -18,3 +18,17 @@ export const filterTodoComplete = (isComplete) => {
     payload: isComplete,
   };
 };
+
+export const filterTodoActive = (isActive) => {
+  return {
+    type: actionsTypes.FILTERS_TODO_ACTIVE,
+    payload: isActive,
+  };
+};
+
+export const filterTodoAll = (all) => {
+  return {
+    type: actionsTypes.FILTERS_TODO_ACTIVE,
+    payload: all,
+  };
+};

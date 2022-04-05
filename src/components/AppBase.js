@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import InputForm from "./add-input/InputForm";
 import Lists from "./lists/Lists";
 import { useSelector, useDispatch } from "react-redux";
-import { filterTodoComplete } from "../redux/actions";
+import { filterTodoComplete, filterTodoActive } from "../redux/actions";
 
 const AppBase = () => {
   const dispatch = useDispatch();
@@ -45,7 +45,7 @@ const AppBase = () => {
                       role="tab"
                       aria-controls="ex1-tabs-2"
                       aria-selected="false"
-                      // onClick={() => dispatch(filterTodo(true))}
+                      onClick={() => dispatch(filterTodoActive(true))}
                     >
                       Active
                     </a>
