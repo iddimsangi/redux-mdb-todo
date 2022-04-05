@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import InputForm from "./add-input/InputForm";
 import Lists from "./lists/Lists";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { filterTodoComplete } from "../redux/actions";
 
 const AppBase = () => {
+  const dispatch = useDispatch();
   const tasks = useSelector((state) => state.allTasks.tasks);
   const [filtersTodos, setfiltersTodos] = useState([]);
+  const [filterKeyword, setFilterKeyWord] = useState("All");
 
   useEffect(() => {
     setfiltersTodos(tasks);
-    console.log(filtersTodos);
   }, [tasks, filtersTodos]);
   return (
     <section className="vh-100 gradient-custom">
@@ -43,6 +45,7 @@ const AppBase = () => {
                       role="tab"
                       aria-controls="ex1-tabs-2"
                       aria-selected="false"
+                      // onClick={() => dispatch(filterTodo(true))}
                     >
                       Active
                     </a>
@@ -56,6 +59,7 @@ const AppBase = () => {
                       role="tab"
                       aria-controls="ex1-tabs-3"
                       aria-selected="false"
+                      onClick={() => dispatch(filterTodoComplete(false))}
                     >
                       Completed
                     </a>

@@ -5,16 +5,16 @@ export const addTask = (task) => {
     payload: task,
   };
 };
-export const markComplete = (isActive) => {
+export const markComplete = (completeId) => {
   return {
     type: actionsTypes.MARK_COMPLETE_TASK,
-    payload: isActive,
+    payload: completeId,
   };
 };
 
-export const filterTodo = (filteredTodos) => {
+export const filterTodoComplete = (isComplete) => {
   return {
-    type: actionsTypes.FILTERS_TODO,
-    payload: filteredTodos,
+    type: actionsTypes.FILTERS_TODO_COMPLETE,
+    payload: isComplete,
   };
 };
