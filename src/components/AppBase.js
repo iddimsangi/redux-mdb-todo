@@ -8,6 +8,7 @@ const AppBase = () => {
   const dispatch = useDispatch();
   const tasks = useSelector((state) => state.allTasks.tasks);
   const [filtersTodos, setfiltersTodos] = useState([]);
+  const [filterKeyWord, setFilterKeyWord] = useState("All");
 
   useEffect(() => {
     setfiltersTodos(tasks);

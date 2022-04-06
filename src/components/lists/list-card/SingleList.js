@@ -21,7 +21,7 @@ const SingleList = ({ task }) => {
         aria-label="..."
         onClick={() => dispatch(markComplete(id))}
         // onChange={(e) => markCompleteHandler(e)}
-        checked={!isActive}
+        defaultChecked={!isActive}
       />
       {isActive ? inputValue : <s>{inputValue}</s>}
     </li>
