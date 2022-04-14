@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import { addReducer } from "./addReducer";
+import { Reducers } from "./reducers";
 const reducers = combineReducers({
-  allTasks: addReducer,
+  allTasks: Reducers,
 });
 
 export default reducers;
