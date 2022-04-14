@@ -1,7 +1,16 @@
 import React from "react";
 import InputForm from "./add-input/InputForm";
 import Lists from "./lists/Lists";
+import { useSelector, useDispatch } from "react-redux";
+import { activeFilters } from "../redux/actions";
 const AddTodo = () => {
+  const tasks = useSelector((state) => state.allTasks.tasks);
+  const dispatch = useDispatch();
+  const activeHandler = () => {
+    const activeTasks = tasks.filter((task) => task.isActive === true);
+    console.log(activeTasks);
+    dispatch(activeFilters(activeTasks));
+  };
   return (
     <section className="vh-100 gradient-custom">
       <div className="container py-5 h-100">
@@ -34,6 +43,7 @@ const AddTodo = () => {
                       role="tab"
                       aria-controls="ex1-tabs-2"
                       aria-selected="false"
+                      onClick={activeHandler}
                     >
                       Active
                     </a>

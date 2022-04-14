@@ -3,7 +3,6 @@ import SingleList from "./list-card/SingleList";
 import { useSelector } from "react-redux";
 const Lists = () => {
   const tasks = useSelector((state) => state.allTasks.tasks);
-  // console.log(tasks);
 
   const renderLists = tasks.map((task) => (
     <div className="tab-content" id="ex1-content" key={task.id}>
