@@ -33,7 +33,18 @@ export const FilterReducer = (state = {}, { type, payload }) => {
         payload,
       };
       break;
-
+    case actionsTypes.COMPLETE_FILTER_TASKS:
+      return {
+        ...state,
+        payload,
+      };
+      break;
+    case actionsTypes.ALL_FILTER_TASKS:
+      return {
+        ...state,
+        payload,
+      };
+      break;
     default:
       return state;
   }

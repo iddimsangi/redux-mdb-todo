@@ -18,3 +18,16 @@ export const activeFilters = (tasks) => {
     payload: tasks,
   };
 };
+export const completeFilters = (tasksComplete) => {
+  return {
+    type: actionsTypes.COMPLETE_FILTER_TASKS,
+    payload: tasksComplete,
+  };
+};
+
+export const allFilters = (allTasks) => {
+  return {
+    type: actionsTypes.ALL_FILTER_TASKS,
+    payload: allTasks,
+  };
+};

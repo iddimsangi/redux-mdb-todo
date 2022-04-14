@@ -1,15 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import InputForm from "./add-input/InputForm";
 import Lists from "./lists/Lists";
 import { useSelector, useDispatch } from "react-redux";
-import { activeFilters } from "../redux/actions";
+import { activeFilters, completeFilters, allFilters } from "../redux/actions";
+
 const AddTodo = () => {
   const tasks = useSelector((state) => state.allTasks.tasks);
+  const tasksFiltered = useSelector((state) => state.filters.payload);
+  console.log(tasksFiltered);
+  const [tasksTodos, setTasksTodos] = useState([]);
+  const [filterKeyWord, setFilterKeyWord] = useState("All");
   const dispatch = useDispatch();
   const activeHandler = () => {
+    setFilterKeyWord("Active");
     const activeTasks = tasks.filter((task) => task.isActive === true);
-    console.log(activeTasks);
     dispatch(activeFilters(activeTasks));
+    console.log(filterKeyWord);
+  };
+
+  const completeHandler = () => {
+    setFilterKeyWord("Complete");
+    const activeTasks = tasks.filter((task) => task.isActive === false);
+    dispatch(completeFilters(activeTasks));
+    console.log(filterKeyWord);
+  };
+
+  const allTasksHandler = () => {
+    setFilterKeyWord("All");
+    dispatch(allFilters(tasks));
+  };
+  useEffect(() => {
+    filterTasksHandler(filterKeyWord);
+    console.log(tasksFiltered);
+    console.log(tasksTodos);
+  }, [tasks, tasksTodos, filterKeyWord, tasksFiltered]);
+  const filterTasksHandler = (keywords) => {
+    if (keywords === "All") {
+      setTasksTodos(tasks);
+    } else if (keywords === "Active") {
+      setTasksTodos(tasksFiltered);
+    } else if (keywords === "Complete") {
+      setTasksTodos(tasksFiltered);
+    }
   };
   return (
     <section className="vh-100 gradient-custom">
@@ -30,6 +62,7 @@ const AddTodo = () => {
                       role="tab"
                       aria-controls="ex1-tabs-1"
                       aria-selected="true"
+                      onClick={allTasksHandler}
                     >
                       All
                     </a>
@@ -57,12 +90,13 @@ const AddTodo = () => {
                       role="tab"
                       aria-controls="ex1-tabs-3"
                       aria-selected="false"
+                      onClick={completeHandler}
                     >
                       Completed
                     </a>
                   </li>
                 </ul>
-                <Lists />
+                <Lists myTasks={tasksTodos} />
               </div>
             </div>
           </div>
