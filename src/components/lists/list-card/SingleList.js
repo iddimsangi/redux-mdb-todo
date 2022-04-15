@@ -4,6 +4,7 @@ import { markComplete } from "../../../redux/actions";
 const SingleList = ({ task }) => {
   const { id, isActive, inputValue } = task;
   const dispatch = useDispatch();
+  let defaultChecked = !isActive;
   return (
     <li
       className="list-group-item d-flex align-items-center border-0 mb-2 rounded"
@@ -16,6 +17,7 @@ const SingleList = ({ task }) => {
         value=""
         aria-label="..."
         onClick={() => dispatch(markComplete(id))}
+        defaultChecked={defaultChecked}
       />
       {isActive ? inputValue : <s>{inputValue}</s>}
     </li>

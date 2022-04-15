@@ -7,7 +7,6 @@ import { activeFilters, completeFilters, allFilters } from "../redux/actions";
 const AddTodo = () => {
   const tasks = useSelector((state) => state.allTasks.tasks);
   const tasksFiltered = useSelector((state) => state.filters.payload);
-  console.log(tasksFiltered);
   const [tasksTodos, setTasksTodos] = useState([]);
   const [filterKeyWord, setFilterKeyWord] = useState("All");
   const dispatch = useDispatch();
@@ -15,14 +14,12 @@ const AddTodo = () => {
     setFilterKeyWord("Active");
     const activeTasks = tasks.filter((task) => task.isActive === true);
     dispatch(activeFilters(activeTasks));
-    console.log(filterKeyWord);
   };
 
   const completeHandler = () => {
     setFilterKeyWord("Complete");
     const activeTasks = tasks.filter((task) => task.isActive === false);
     dispatch(completeFilters(activeTasks));
-    console.log(filterKeyWord);
   };
 
   const allTasksHandler = () => {
@@ -31,8 +28,6 @@ const AddTodo = () => {
   };
   useEffect(() => {
     filterTasksHandler(filterKeyWord);
-    console.log(tasksFiltered);
-    console.log(tasksTodos);
   }, [tasks, tasksTodos, filterKeyWord, tasksFiltered]);
   const filterTasksHandler = (keywords) => {
     if (keywords === "All") {

@@ -38,6 +38,7 @@ const InputForm = () => {
           name="inputValue"
           value={inputs.inputValue}
           onChange={(e) => inputHandler(e)}
+          required
         />
       </div>
       <button type="submit" className="btn btn-info ms-2">
