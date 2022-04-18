@@ -24,3 +24,28 @@ export const Reducers = (state = initialState, { type, payload }) => {
       return state;
   }
 };
+
+export const FilterReducer = (state = {}, { type, payload }) => {
+  switch (type) {
+    case actionsTypes.ACTIVE_FILTER_TASKS:
+      return {
+        ...state,
+        payload,
+      };
+      break;
+    case actionsTypes.COMPLETE_FILTER_TASKS:
+      return {
+        ...state,
+        payload,
+      };
+      break;
+    case actionsTypes.ALL_FILTER_TASKS:
+      return {
+        ...state,
+        payload,
+      };
+      break;
+    default:
+      return state;
+  }
+};

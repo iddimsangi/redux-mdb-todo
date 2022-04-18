@@ -11,3 +11,23 @@ export const markComplete = (isActive) => {
     payload: isActive,
   };
 };
+
+export const activeFilters = (tasks) => {
+  return {
+    type: actionsTypes.ACTIVE_FILTER_TASKS,
+    payload: tasks,
+  };
+};
+export const completeFilters = (tasksComplete) => {
+  return {
+    type: actionsTypes.COMPLETE_FILTER_TASKS,
+    payload: tasksComplete,
+  };
+};
+
+export const allFilters = (allTasks) => {
+  return {
+    type: actionsTypes.ALL_FILTER_TASKS,
+    payload: allTasks,
+  };
+};
